@@ -19,7 +19,7 @@ const Homepage = (props) => {
                         <p className='text-sm'>{post.author}</p>
                     </div>
                 )
-            }) : <p>No Data</p>}
+            }) : <p>Can’t find any data.</p>}
         </div>
         
     </div>
