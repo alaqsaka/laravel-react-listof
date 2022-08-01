@@ -1,17 +1,18 @@
-import React from 'react'
-import { Link, Head } from '@inertiajs/inertia-react';
-
+import React from "react";
+import { Link, Head } from "@inertiajs/inertia-react";
+import Navbar from "@/Components/Navbar";
+import PostCard from "@/Components/PostCard";
 
 const Homepage = (props) => {
-  return (
-    <div className='flex justify-center items-center min-h-screen bg-slate-50'>
-        <Head title={props.title} />
-        
-        <div>
-            {props.posts ? props.posts.map((post, idx) => {
+    return (
+        <div className="h-screen bg-slate-50">
+            <Head title={props.title} />
+            <Navbar />
+            <div>
+                {/* {props.posts ? props.posts.map((post, idx) => {
                 return ( 
-                    <div key={idx} className="p-4 m-2 bg-white text-black shadow-md border rounded-md">
-                        <p className='text-2xl'>{post.title}</p>
+                    <div key={idx} className="p-4 m-2 bg-white text-gray-900 shadow-md border rounded-md">
+                        <p className='text-2xl font-bold'>{post.title}</p>
                         <p>{post.description}</p>
                         <p>{post.category}</p>
                         <p>{post.content}</p>
@@ -19,11 +20,11 @@ const Homepage = (props) => {
                         <p className='text-sm'>{post.author}</p>
                     </div>
                 )
-            }) : <p>Can’t find any data.</p>}
+            }) : <p>Can’t find any data.</p>} */}
+                <PostCard />
+            </div>
         </div>
-        
-    </div>
-  )
-}
+    );
+};
 
-export default Homepage
+export default Homepage;
