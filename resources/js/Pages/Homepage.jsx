@@ -5,12 +5,11 @@ import PostCards from "@/Components/PostCards";
 import Paginator from "@/Components/Homepage/Paginator";
 
 const Homepage = (props) => {
-    console.log(props);
     return (
         <div className="min-h-screen bg-white">
             <Head title={props.title} />
-            <Navbar />
-            <div className="p-4">
+            <Navbar user={props.auth.user}/>
+            <div className="p-4 md:hidden">
                 <input
                     type="text"
                     placeholder="Search"

@@ -17,8 +17,8 @@ class PostController extends Controller
     public function index()
     {
         // Ngambil data posts dari database
-        $posts = new PostCollection(Post::paginate(8));
-        
+        $posts = new PostCollection(Post::orderBy('id', 'desc')->paginate(8));
+
         return Inertia::render('Homepage', ['title' => 'ListOf Home', 'description' => 'Welcome to ListOf', 'posts' => $posts]);
     }
 
@@ -40,6 +40,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $post = new Post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->category = $request->category;
+        $post->content = $request->content;
+        $post->author = auth()->user()->email;
+        $post->save();
+        return redirect()->back()->with('message', 'Success create new list!');
         //
     }
 
