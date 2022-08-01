@@ -6,7 +6,7 @@ import PostCards from "@/Components/PostCards";
 const Homepage = (props) => {
     console.log(props);
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-white">
             <Head title={props.title} />
             <Navbar />
             <div
