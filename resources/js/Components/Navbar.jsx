@@ -4,7 +4,9 @@ const Navbar = () => {
     return (
         <div className="navbar bg-white">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">ListOf</a>
+                <a className="btn btn-ghost normal-case font-semibold text-2xl text-gray-500">
+                    Listof
+                </a>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control bg-white">
@@ -29,7 +31,7 @@ const Navbar = () => {
                     >
                         <li>
                             <a className="justify-between">
-                                Profile
+                                Dashboard
                                 <span className="badge">New</span>
                             </a>
                         </li>
