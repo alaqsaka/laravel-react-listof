@@ -11,7 +11,8 @@ const Homepage = (props) => {
             <Navbar />
             <div
                 className="flex justify-center 
-                flex-col lg:flex-row lg:flex-wrap lg:items-stretch items-center  gap-4 p-4"
+                flex-col lg:flex-row lg:flex-wrap 
+                lg:items-stretch items-center  gap-4 p-4"
             >
                 <PostCards posts={props.posts.data} />
             </div>

@@ -4,7 +4,7 @@ const isPosts = (posts) => {
     return posts?.map((post, index) => {
         return (
             <div
-                className="card w-96 bg-white border shadow border-gray-300"
+                className="card w-full lg:w-96 bg-white border shadow border-gray-300"
                 key={index}
             >
                 <div className="card-body">
