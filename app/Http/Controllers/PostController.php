@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Resources\PostCollection;
 use Inertia\Inertia;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -15,8 +17,8 @@ class PostController extends Controller
     public function index()
     {
         // Ngambil data posts dari database
-        $posts = Post::all();
-
+        $posts = new PostCollection(Post::paginate(8));
+        
         return Inertia::render('Homepage', ['title' => 'ListOf Home', 'description' => 'Welcome to ListOf', 'posts' => $posts]);
     }
 
