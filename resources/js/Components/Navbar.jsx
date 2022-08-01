@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-white">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case font-semibold text-2xl text-gray-500">
+                <a className="btn btn-ghost normal-case font-semibold text-2xl text-black" href="/">
                     Listof
                 </a>
             </div>
@@ -13,7 +13,7 @@ const Navbar = () => {
                     <input
                         type="text"
                         placeholder="Search"
-                        className="bg-white input input-bordered"
+                        className="bg-white input input-bordered hidden md:block"
                     />
                 </div>
                 <div className="dropdown dropdown-end">

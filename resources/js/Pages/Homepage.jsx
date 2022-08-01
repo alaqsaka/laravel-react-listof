@@ -10,15 +10,22 @@ const Homepage = (props) => {
         <div className="min-h-screen bg-white">
             <Head title={props.title} />
             <Navbar />
+            <div className="p-4">
+                <input
+                    type="text"
+                    placeholder="Search"
+                    className="bg-white w-full input input-bordered md:hidden"
+                />
+            </div>
             <div
                 className="flex justify-center 
                 flex-col lg:flex-row lg:flex-wrap 
-                lg:items-stretch items-center  gap-4 p-4"
+                lg:items-stretch items-center gap-4 p-4"
             >
                 <PostCards posts={props.posts.data} />
             </div>
             <div className="flex justify-center items-center p-3">
-                <Paginator meta={props?.posts?.meta}/>
+                <Paginator meta={props?.posts?.meta} />
             </div>
         </div>
     );
