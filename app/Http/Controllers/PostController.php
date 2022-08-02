@@ -59,7 +59,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $postsCreatedByUser = $post::where('author', auth()->user()->email)->get();
+
+        return Inertia::render('Dashboard', ['postsCreatedByUser' => $postsCreatedByUser]);
     }
 
     /**

@@ -15,11 +15,13 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/',  [PostController::class, 'index']);
 Route::post('/posts',  [PostController::class, 'store']);
+Route::get('/posts',  [PostController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

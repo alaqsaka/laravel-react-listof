@@ -8,7 +8,7 @@ const Homepage = (props) => {
     return (
         <div className="min-h-screen bg-white">
             <Head title={props.title} />
-            <Navbar user={props.auth.user}/>
+            <Navbar user={props.auth.user} />
             <div className="p-4 md:hidden">
                 <input
                     type="text"
