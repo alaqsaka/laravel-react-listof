@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Authenticated from "@/Layouts/Authenticated";
-import { Head } from "@inertiajs/inertia-react";
+import { Head, Link } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
+
 
 export default function Dashboard(props) {
     console.log(props);
@@ -121,13 +122,13 @@ export default function Dashboard(props) {
                         </button>
                     </div>
 
-                    <div className="mt-3">
+                    <div className="mt-3 flex flex-col sm:grid sm:grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 gap-3">
                         {props.postsCreatedByUser?.length > 0 ? (
                             props.postsCreatedByUser?.map((post, index) => {
                                 return (
                                     <div
                                         key={index}
-                                        className="card w-full lg:w-96 bg-white border shadow border-gray-300 rounded-sm mt-2"
+                                        className="card w-full lg:w-full bg-white border shadow border-gray-300 rounded-sm mt-2"
                                     >
                                         <div className="card-body">
                                             <h2 className="card-title text-black font-bold">
@@ -137,11 +138,17 @@ export default function Dashboard(props) {
                                                 {post.description}
                                             </p>
                                             <p className="text-black text-md">
-                                                {post.cotent}
+                                                {post.content}
                                             </p>
-                                            <div className="card-actions justify-end">
+                                            <div className="card-actions justify-end mt-3">
                                                 <div className="badge badge-inline">
                                                     {post.category}
+                                                </div>
+                                                <div className="badge badge-outline bg-warning text-white">
+                                                    <Link href={route('edit.posts')} data={{id: post.id}} as="button" method="get" >Edit</Link>
+                                                </div>
+                                                <div className="badge badge-outline bg-error text-white">
+                                                    Delete
                                                 </div>
                                             </div>
                                         </div>

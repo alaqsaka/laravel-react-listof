@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+use function Termwind\render;
+
 class PostController extends Controller
 {
     /**
@@ -70,9 +72,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post, Request $request)
     {
-        //
+        return Inertia::render('EditPost', [
+            'myPost' => $post->find($request->id)
+        ]);
     }
 
     /**
@@ -82,9 +86,14 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
-        //
+        Post::where('id', $request->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category' => $request->category, 
+            'content' => $request->content ]);
+        return to_route('dashboard')->with('message', 'Success update list');
     }
 
     /**
