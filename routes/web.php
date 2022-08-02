@@ -17,8 +17,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/',  [PostController::class, 'index']);
-Route::post('/posts',  [PostController::class, 'store']);
-Route::get('/posts',  [PostController::class, 'show']);
+Route::post('/posts',  [PostController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('create.posts');
+Route::get('/posts',  [PostController::class, 'show'])
+    ->middleware(['auth', 'verified'])->name('my.posts');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
